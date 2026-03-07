@@ -1,0 +1,10 @@
+Workflow CI/CD Project Machine Learning
+
+1. Data preprocessing dijalankan melalui script automate_Riyana.py
+2. Dataset yang sudah diproses disimpan sebagai train_preprocessed.csv dan test_preprocessed.csv
+3. Model dilatih menggunakan modelling.py
+4. Model dicatat menggunakan MLflow untuk experiment tracking
+5. Model diserve menggunakan FastAPI melalui inference.py
+6. Monitoring dilakukan menggunakan Prometheus
+7. Visualisasi monitoring menggunakan Grafana
+8. Alerting dibuat menggunakan Grafana Alert Rules
