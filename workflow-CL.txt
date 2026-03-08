@@ -8,3 +8,6 @@ Workflow CI/CD Project Machine Learning
 6. Monitoring dilakukan menggunakan Prometheus
 7. Visualisasi monitoring menggunakan Grafana
 8. Alerting dibuat menggunakan Grafana Alert Rules
+
+Link Repository GitHub Workflow CI/CD
+https://github.com/AyuRiyanaAstarani/Eksperimen_SML_Riyana
