@@ -24,7 +24,6 @@ grid.fit(X_train, y_train)
 
 best_model = grid.best_estimator_
 
-# Evaluation
 y_pred = best_model.predict(X_test)
 
 accuracy = accuracy_score(y_test, y_pred)
