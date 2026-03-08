@@ -10,31 +10,47 @@ app = FastAPI()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-model = mlflow.pyfunc.load_model
+# Load model
 model_path = os.path.join(
     BASE_DIR,
     "mlruns",
     "2",
     "models",
-    "m-b6d0f1865f3e41f9b941586f2ee4dd51",
-    "artifacts",
-    "model.pkl"
+    "model"
 )
 
+# Metrics
+
+# total request
 request_count = Counter(
     "http_requests_total",
     "Total jumlah request model"
 )
+
 
 prediction_latency = Histogram(
     "prediction_latency_seconds",
     "Waktu prediksi model"
 )
 
+
 cpu_usage = Gauge(
     "system_cpu_usage",
     "CPU usage percentage"
 )
+
+
+memory_usage = Gauge(
+    "system_memory_usage",
+    "Memory usage percentage"
+)
+
+
+disk_usage = Gauge(
+    "system_disk_usage",
+    "Disk usage percentage"
+)
+
 
 @app.get("/predict")
 def predict():
@@ -42,15 +58,18 @@ def predict():
     request_count.inc()
 
     start = time.time()
+
     time.sleep(0.1)
 
     latency = time.time() - start
-
     prediction_latency.observe(latency)
 
     cpu_usage.set(psutil.cpu_percent())
+    memory_usage.set(psutil.virtual_memory().percent)
+    disk_usage.set(psutil.disk_usage('/').percent)
 
     return {"status": "ok"}
+
 
 @app.get("/metrics")
 def metrics():
