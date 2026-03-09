@@ -9,5 +9,5 @@ Workflow CI/CD Project Machine Learning
 7. Visualisasi monitoring dilakukan menggunakan Grafana dashboard.
 8. Sistem alerting dibuat menggunakan Grafana Alert Rules untuk mendeteksi kondisi tertentu pada metrik monitoring.
 
-Repository GitHub:
-https://github.com/AyuRiyanaAstarani/Eksperimen_SML_Riyana
+Repository Workflow CI MLflow Project
+https://github.com/AyuRiyanaAstarani/Workflow-CI-Riyana
